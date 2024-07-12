@@ -224,10 +224,11 @@ export const ComposePost = observer(function ComposePost({
 
   const onNewLink = useCallback(
     (uri: string) => {
+      if (quote) return
       if (extLink != null) return
       setExtLink({uri, isLoading: true})
     },
-    [extLink, setExtLink],
+    [quote, extLink, setExtLink],
   )
 
   const onPhotoPasted = useCallback(
